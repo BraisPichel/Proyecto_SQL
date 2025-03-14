@@ -86,7 +86,7 @@ AND "rating" <> 'G' ;
 -- con el promedio de duración.  
 
 SELECT "rating" AS "Clasificación",
-       AVG("length") AS "Promedio_duracion"
+       ROUND(AVG("length")) AS "Promedio_duracion"
 FROM "film" AS f 
 GROUP BY "rating" ;
 
@@ -144,7 +144,7 @@ AND f."length" > 180;
 -- categoría junto con el promedio de duración.
 
 SELECT c."name" AS "Categoría_película" , 
-       AVG("length") AS "Duración_promedio"
+       ROUND(AVG("length")) AS "Duración_promedio"
 FROM "film" AS f
 INNER JOIN "film_category" AS fc 
 ON f."film_id" = fc."film_id" 
